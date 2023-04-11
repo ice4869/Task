@@ -1,0 +1,26 @@
+#way1
+#s = input("請輸入一個字串:")
+
+#char_dict = {}
+
+#for i , char in enumerate(s):
+#  if char in char_dict:
+#    char_dict[char].append(i+1)
+#  else:
+#    char_dict[char] = [i+1]
+
+#print(char_dict)    
+    
+#way2
+S = 'Here are UPPERCASE and lowercase chars.'
+d = {}
+count = 1
+for s in S:
+  if s not in d:
+    d[s] = []
+
+  d[s].append(count)
+  count = count + 1
+
+print(d)  
+  
