@@ -1,0 +1,96 @@
+#way1
+#a, b = int(input()), int(input())
+#result = list()
+#for i in range(a,b+1):
+#  result.append(list(str(i)))
+
+#result2 = list()
+#c = 0
+#for i in range(a,b+1):
+
+#  for j in result[c]:
+#    if int(j) == 0:
+#      continue
+#    if i % int(j) == 0:
+#      result2.append(i)
+#  c = c+1  
+
+
+#d1 = list()
+#for i in result2:
+#  if result2.count(i) > len(str(i))-1:
+#    d1.append(i)
+
+#d1 = list(set(d1))
+#d1.sort()
+#d2 = list()
+#for i in range(len(d1)):
+#  if i == len(d1)-1:
+#    break
+#  d2.append(d1[i+1] - d1[i])
+
+
+#d = max(d2)
+#num = d2.index(d)
+#print(d1[num],d1[num+1])
+
+#way2
+def is_self_dividing(n):
+    """檢查一個數字是否是自除數"""
+    digits = [int(d) for d in str(n)]
+    for d in digits:
+        if d == 0 or n % d != 0:
+            return False
+    return True
+
+def max_self_dividing_difference(left, right):
+    """找出在左右邊界之間的 Self-Dividing Number 的最大差距"""
+    max_diff = 0
+    max_diff_pair = None
+    for i in range(left, right):
+        for j in range(i+1, right+1):
+            if is_self_dividing(i) and is_self_dividing(j):
+                diff = j - i
+                if diff > max_diff:
+                    max_diff = diff
+                    max_diff_pair = (i, j)
+    return max_diff_pair
+
+# 範例輸入：左邊界為1，右邊界為22
+left = 11
+right = 20
+
+# 呼叫函式找出最大差距
+max_diff_pair = max_self_dividing_difference(left, right)
+
+# 輸出結果
+print(f"差距最大的 Self-Dividing Number 是 {max_diff_pair[0]} 與 {max_diff_pair[1]}，差距為 {max_diff_pair[1] - max_diff_pair[0]}")
+
+#way3
+def is_self_dividing(n):
+    """檢查一個數字是否是自除數"""
+    digits = [int(d) for d in str(n)]
+    return all(d != 0 and n % d == 0 for d in digits)
+
+def max_self_dividing_difference(left, right):
+    """找出在左右邊界之間的 Self-Dividing Number 的最大差距"""
+    max_diff = 0
+    max_diff_pair = None
+    for i in range(left, right):
+        for j in range(i+1, right+1):
+            if is_self_dividing(i) and is_self_dividing(j):
+                diff = j - i
+                if diff > max_diff:
+                    max_diff = diff
+                    max_diff_pair = (i, j)
+    return max_diff_pair
+
+# 範例輸入：左邊界為1，右邊界為22
+left = 1
+right = 22
+
+# 呼叫函式找出最大差距
+max_diff_pair = max_self_dividing_difference(left, right)
+
+# 輸出結果
+print(f"差距最大的 Self-Dividing Number 是 {max_diff_pair[0]} 與 {max_diff_pair[1]}，差距為 {max_diff_pair[1] - max_diff_pair[0]}")
