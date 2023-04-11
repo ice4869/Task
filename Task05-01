@@ -1,0 +1,17 @@
+import itertools
+
+user_input = ""
+
+while user_input != "exit":
+  user_input = input("請輸入字串(輸入 'exit' 結束程式) :")
+  if user_input == "exit":
+    break
+
+
+
+  #letters = sorted(list(set(user_input)))
+
+  permutations = list(itertools.permutations(user_input))
+
+  for i in permutations:
+    print("".join(i))
