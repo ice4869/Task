@@ -1,0 +1,27 @@
+# Task
+#way1.
+#s = input()
+#start = s.index("not")
+#end = s.index("at all")
+#d = f"{s[:start]}good{s[end+6:]}"
+#print(d)
+
+#way2.
+#s = str(input())
+#s1 = s.split("not")[0]
+#s2 = s.split("at all")[1]
+#d = f"{s1}good{s2}"
+#print(s2)
+
+#way3
+#s = input()
+#c1 = s.find("not")
+#c2 = s.find("at all")+6
+#d = s[:c1]+"good"+s[c2:len(s)]
+#print(d)
+
+#way4
+import re
+s = input()
+d = re.sub(r"not\s+.*?\s+at\s+all","good",s)
+print(d)
