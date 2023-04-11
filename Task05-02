@@ -1,0 +1,10 @@
+def Climbing_Stairs(n):
+  if n == 1:
+    return (1)
+  elif n == 2:
+    return (2)
+  else:
+    return Climbing_Stairs(n-1) + Climbing_Stairs(n-2) 
+
+n = int(input())
+print(Climbing_Stairs(n))
