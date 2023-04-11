@@ -1,0 +1,36 @@
+#way1
+def twosum(nums , target):
+  complement_dict={}
+  for i,num in enumerate(nums):
+    complement = target - num
+    if complement in complement_dict:
+      return [complement_dict[complement],i]
+    complement_dict[num] = i
+
+  return []
+
+nums = [2,7,11,15]
+target = 9
+output = twosum(nums , target)
+print(output)
+
+
+
+#way2
+
+def twoSum(nums, target):
+    n = len(nums)
+    #print(n)
+    # 遍歷所有可能的數字組合
+    for i in range(n):
+      #print(i)
+      for j in range(i+1, n):
+            #print([j])
+            # 如果找到符合條件的組合，返回它們的 index
+            if nums[i] + nums[j] == target:
+                return [i, j]
+    # 如果找不到符合條件的組合，返回空列表
+    return []
+
+d = twoSum(nums, target)
+print(d) 
